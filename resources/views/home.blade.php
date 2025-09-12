@@ -62,7 +62,7 @@
                                         </svg>
                                     </button>
                                     <span id="adult-quantity" class="text-xl font-semibold min-w-[2rem] text-center">0</span>
-                                    <input type="hidden" id="adult-quantity-input" name="adult_input"/>
+                                    <input type="hidden" id="adult-quantity-input" name="adult_input" value="0"/>
                                     <button onclick="updateQuantity('adult', 1)"
                                             type="button"
                                             class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-500 transition-colors duration-200">
@@ -97,7 +97,7 @@
                                         </svg>
                                     </button>
                                     <span id="child-quantity" class="text-xl font-semibold min-w-[2rem] text-center">0</span>
-                                    <input type="hidden" id="child-quantity-input" name="child_input" />
+                                    <input type="hidden" id="child-quantity-input" name="child_input" value="0" />
                                     <button onclick="updateQuantity('child', 1)"
                                             type="button"
                                             class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-purple-500 hover:text-purple-500 transition-colors duration-200">
