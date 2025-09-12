@@ -18,6 +18,6 @@ class OrderTicket extends Model
 
     public function order(): BelongsTo
     {
-        return $this->belongsTo(order::class);
+        return $this->belongsTo(Order::class);
     }
 }
