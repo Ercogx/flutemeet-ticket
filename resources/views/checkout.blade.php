@@ -47,7 +47,7 @@
                                         {{ $ticket->ticket_type->value }}
                                     </span>
 
-                                    Ticket #{{ $key + 1 }} Holder Information
+                                    Attendee #{{ $key + 1 }}
                                 </h4>
                                 <input type="hidden" name="ticket[{{ $key }}][id]" value="{{ $ticket->id }}">
                                 @error('ticket.'.$key.'.id')
