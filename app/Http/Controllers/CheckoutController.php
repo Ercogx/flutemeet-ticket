@@ -102,22 +102,35 @@ class CheckoutController extends Controller
 
     public function createOrder(Event $event, CreateOrderRequest $request): RedirectResponse
     {
-        Order::whereSession($request->session()->getId())
-            ->where('status', OrderStatus::PENDING)
-            ->update([
-                'status' => OrderStatus::REJECTED,
+        DB::statement('LOCK TABLES laravel_ticket_orders WRITE, laravel_ticket_sessions READ, laravel_ticket_order_tickets WRITE');
+
+        DB::beginTransaction();
+
+        try {
+            Order::whereSession($request->session()->getId())
+                ->where('status', OrderStatus::PENDING)
+                ->update([
+                    'status' => OrderStatus::REJECTED,
+                ]);
+
+            $order = $event->orders()->create([
+                'session' => $request->session()->getId(),
+                'status' => OrderStatus::PENDING,
             ]);
 
-        $order = $event->orders()->create([
-            'session' => $request->session()->getId(),
-            'status' => OrderStatus::PENDING,
-        ]);
+            $adult = array_fill(0, $request->integer('adult_input'), ['ticket_type' => TicketType::ADULT]);
+            $child = array_fill(0, $request->integer('child_input'), ['ticket_type' => TicketType::CHILD]);
 
-        $adult = array_fill(0, $request->integer('adult_input'), ['ticket_type' => TicketType::ADULT]);
-        $child = array_fill(0, $request->integer('child_input'), ['ticket_type' => TicketType::CHILD]);
+            $order->orderTickets()->createMany($adult);
+            $order->orderTickets()->createMany($child);
 
-        $order->orderTickets()->createMany($adult);
-        $order->orderTickets()->createMany($child);
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        } finally {
+            DB::statement('UNLOCK TABLES');
+        }
 
         return to_route('checkout.index');
     }
