@@ -6,7 +6,9 @@
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <!-- Header -->
         <div class="text-center mb-8 animate-fade-in">
-            <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
+            <a href="https://flutemeet.org">
+                <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
+            </a>
             <div class="flex items-center justify-center mb-4">
                 <a href="{{ route('home') }}" class="mr-4 p-2 rounded-full hover:bg-gray-100 transition-colors">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

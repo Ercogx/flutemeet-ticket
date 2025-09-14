@@ -16,7 +16,9 @@
         <div class="container mx-auto px-4 py-8 max-w-4xl">
             <!-- Header -->
             <div class="text-center mb-12 animate-fade-in">
-                <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
+                <a href="https://flutemeet.org">
+                    <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
+                </a>
                 <h1 class="font-bold text-brand-dark mb-4" style="font-size: 4rem;">
                     {{ $event->name }}
                 </h1>
