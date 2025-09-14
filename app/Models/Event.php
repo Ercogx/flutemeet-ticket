@@ -24,8 +24,6 @@ class Event extends Model
         'number_child_ticket' => 'integer',
         'price_adult_ticket' => 'integer',
         'price_child_ticket' => 'integer',
-        'remaining_adult_ticket' => 'integer',
-        'remaining_child_ticket' => 'integer',
     ];
 
     public function orders(): HasMany
