@@ -46,7 +46,7 @@
                             class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                             <div class="flex items-center flex-col md:flex-row justify-between md:mb-4">
                                 <div class="mb-4 md:mb-0">
-                                    <h3 class="font-bold text-brand-dark mb-1" style="font-size: 4rem">Adult Ticket</h3>
+                                    <h3 class="text-xl font-bold text-brand-dark mb-1">Adult Ticket</h3>
                                     <p class="text-gray-500 text-sm text-center md:text-left">Ages 18+</p>
                                     <div class="flex items-center mt-2">
                                         <span class="text-2xl font-bold text-brand-teal">€{{ $event->price_adult_ticket }}</span>
@@ -83,7 +83,7 @@
                             class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                             <div class="flex items-center flex-col md:flex-row justify-between md:mb-4">
                                 <div class="mb-4 md:mb-0">
-                                    <h3 class="font-bold text-brand-dark mb-1" style="font-size: 4rem">Child Ticket</h3>
+                                    <h3 class="text-xl font-bold text-brand-dark mb-1">Child Ticket</h3>
                                     <p class="text-gray-500 text-sm text-center md:text-left">Ages 5-17</p>
                                     <div class="flex items-center mt-2">
                                         <span class="text-2xl  font-bold text-brand-teal">€{{ $event->price_child_ticket }}</span>
