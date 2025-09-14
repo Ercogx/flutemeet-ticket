@@ -16,10 +16,11 @@
         <div class="container mx-auto px-4 py-8 max-w-4xl">
             <!-- Header -->
             <div class="text-center mb-12 animate-fade-in">
-                <h1 class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
+                <h1 class="font-bold text-brand-dark mb-4" style="font-size: 4rem;">
                     {{ $event->name }}
                 </h1>
-                <p class="text-gray-600 text-lg">Select your tickets for an unforgettable experience</p>
+                <p class="text-brand-dark text-xl">Select your tickets for an unforgettable experience</p>
                 <div class="flex items-center justify-center mt-4 text-sm text-gray-500">
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
@@ -42,20 +43,22 @@
                     <div class="space-y-6">
                         <!-- Adult Tickets -->
                         <div
-                            class="border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition-all duration-300">
+                            class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                             <div class="flex items-center flex-col md:flex-row justify-between md:mb-4">
                                 <div class="mb-4 md:mb-0">
-                                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Adult Ticket</h3>
+                                    <h3 class="font-bold text-brand-dark mb-1" style="font-size: 4rem">Adult Ticket</h3>
                                     <p class="text-gray-500 text-sm text-center md:text-left">Ages 18+</p>
                                     <div class="flex items-center mt-2">
-                                        <span class="text-2xl font-bold text-indigo-600">€{{ $event->price_adult_ticket }}</span>
-                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full ml-2" id="adult-remaining">Left {{ $event->remaining_adult_ticket }}</span>
+                                        <span class="text-2xl font-bold text-brand-teal">€{{ $event->price_adult_ticket }}</span>
+                                        <span class="bg-gray-200 text-red-600 text-xs px-2 py-1 rounded-full ml-2 @if($event->remaining_adult_ticket > 10) hidden @endif"
+                                              id="adult-remaining"
+                                        >Left {{ $event->remaining_adult_ticket }}</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
                                     <button onclick="updateQuantity('adult', -1)"
                                             type="button"
-                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-brand-teal hover:text-brand-teal transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M20 12H4"></path>
@@ -65,7 +68,7 @@
                                     <input type="hidden" id="adult-quantity-input" name="adult_input" value="0"/>
                                     <button onclick="updateQuantity('adult', 1)"
                                             type="button"
-                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-500 transition-colors duration-200">
+                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-brand-teal hover:text-brand-teal transition-colors duration-200">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -77,20 +80,22 @@
 
                         <!-- Child Tickets -->
                         <div
-                            class="border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-md transition-all duration-300">
+                            class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                             <div class="flex items-center flex-col md:flex-row justify-between md:mb-4">
                                 <div class="mb-4 md:mb-0">
-                                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Child Ticket</h3>
+                                    <h3 class="font-bold text-brand-dark mb-1" style="font-size: 4rem">Child Ticket</h3>
                                     <p class="text-gray-500 text-sm text-center md:text-left">Ages 5-17</p>
                                     <div class="flex items-center mt-2">
-                                        <span class="text-2xl font-bold text-purple-600">€{{ $event->price_child_ticket }}</span>
-                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full ml-2" id="child-remaining">Left {{ $event->remaining_child_ticket }}</span>
+                                        <span class="text-2xl  font-bold text-brand-teal">€{{ $event->price_child_ticket }}</span>
+                                        <span class="bg-gray-200 text-red-600 text-xs px-2 py-1 rounded-full ml-2 @if($event->remaining_child_ticket > 10) hidden @endif"
+                                              id="child-remaining"
+                                        >Left {{ $event->remaining_child_ticket }}</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
                                     <button onclick="updateQuantity('child', -1)"
                                             type="button"
-                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-purple-500 hover:text-purple-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-brand-teal hover:text-brand-teal transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M20 12H4"></path>
@@ -100,7 +105,7 @@
                                     <input type="hidden" id="child-quantity-input" name="child_input" value="0" />
                                     <button onclick="updateQuantity('child', 1)"
                                             type="button"
-                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-purple-500 hover:text-purple-500 transition-colors duration-200">
+                                            class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-brand-teal hover:text-brand-teal transition-colors duration-200">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -126,7 +131,7 @@
                             <hr class="my-3">
                             <div class="flex justify-between items-center text-lg font-bold">
                                 <span>Total</span>
-                                <span class="text-indigo-600" id="grand-total">€0</span>
+                                <span class="text-brand-teal" id="grand-total">€0</span>
                             </div>
                         </div>
                     </div>
@@ -135,7 +140,7 @@
                     <div class="mt-8">
                         <button id="continue-btn"
                                 type="submit"
-                                class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+                                class="w-full bg-brand-orange text-white py-4 rounded-xl font-semibold text-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
                                 disabled>
                             Select Tickets to Continue
                         </button>
@@ -197,29 +202,19 @@
                 const childRemainingEl = document.getElementById('child-remaining');
 
                 // Update adult remaining
-                adultRemainingEl.textContent = `${adultRemaining} left`;
-                if (adultRemaining <= 5) {
-                    adultRemainingEl.classList.add('text-red-600', 'animate-pulse');
-                    adultRemainingEl.classList.remove('text-indigo-600');
-                } else if (adultRemaining <= 20) {
-                    adultRemainingEl.classList.add('text-orange-600');
-                    adultRemainingEl.classList.remove('text-indigo-600', 'text-red-600', 'animate-pulse');
+                adultRemainingEl.textContent = `${adultRemaining} left`
+                if (adultRemaining <= 10) {
+                    adultRemainingEl.classList.remove('hidden');
                 } else {
-                    adultRemainingEl.classList.add('text-indigo-600');
-                    adultRemainingEl.classList.remove('text-red-600', 'text-orange-600', 'animate-pulse');
+                    adultRemainingEl.classList.add('hidden');
                 }
 
                 // Update child remaining
                 childRemainingEl.textContent = `${childRemaining} left`;
-                if (childRemaining <= 5) {
-                    childRemainingEl.classList.add('text-red-600', 'animate-pulse');
-                    childRemainingEl.classList.remove('text-purple-600');
-                } else if (childRemaining <= 20) {
-                    childRemainingEl.classList.add('text-orange-600');
-                    childRemainingEl.classList.remove('text-purple-600', 'text-red-600', 'animate-pulse');
+                if (childRemaining <= 10) {
+                    childRemainingEl.classList.remove('hidden');
                 } else {
-                    childRemainingEl.classList.add('text-purple-600');
-                    childRemainingEl.classList.remove('text-red-600', 'text-orange-600', 'animate-pulse');
+                    childRemainingEl.classList.add('hidden');
                 }
             }
 

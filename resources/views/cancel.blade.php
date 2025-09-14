@@ -9,7 +9,7 @@
 
                 <!-- Icon -->
                 <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -26,7 +26,7 @@
                 <!-- Actions -->
                 <div class="space-y-3">
                     <a href="/"
-                       class="block w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+                       class="block w-full bg-brand-teal text-white py-3 px-6 rounded-lg font-medium">
                         Try Again
                     </a>
 
@@ -39,7 +39,7 @@
                 <div class="mt-8 pt-6 border-t border-gray-200">
                     <p class="text-sm text-gray-500">
                         Need help?
-                        <a href="mailto:flutemeet@gmail.com" class="text-indigo-600 hover:underline">
+                        <a href="mailto:flutemeet@gmail.com" class="text-brand-teal hover:underline">
                             Contact Support
                         </a>
                     </p>

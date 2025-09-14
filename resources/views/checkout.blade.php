@@ -6,13 +6,14 @@
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <!-- Header -->
         <div class="text-center mb-8 animate-fade-in">
+            <img src="/img/logo.png" alt="logo" class="h-24 mx-auto mb-4">
             <div class="flex items-center justify-center mb-4">
                 <a href="{{ route('home') }}" class="mr-4 p-2 rounded-full hover:bg-gray-100 transition-colors">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </a>
-                <h1 class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 class="text-3xl font-bold text-brand-dark">
                     Checkout
                 </h1>
             </div>
@@ -24,7 +25,7 @@
             <div class="flex items-center gap-3">
                 <!-- Progress bar -->
                 <div class="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
-                    <div id="progress" class="bg-indigo-600 h-3 rounded-full" style="width: 100%;"></div>
+                    <div id="progress" class="bg-brand-teal h-3 rounded-full" style="width: 100%;"></div>
                 </div>
 
                 <!-- Time text -->
@@ -43,7 +44,7 @@
                         <div id="ticket-holders-container">
                             @foreach($order->orderTickets as $key => $ticket)
                                 <h4 class="text-md font-semibold text-gray-800 my-4 flex items-center">
-                                    <span class="{{ $ticket->ticket_type === \App\Enums\TicketType::ADULT ? 'bg-indigo-500' : 'bg-purple-500' }} text-white text-xs px-2 py-1 rounded-full mr-2">
+                                    <span class="bg-brand-teal text-white text-xs px-2 py-1 rounded-full mr-2">
                                         {{ $ticket->ticket_type->value }}
                                     </span>
 
@@ -59,7 +60,7 @@
                                         <input type="text"
                                                id="ticket-{{ $key }}-name"
                                                name="ticket[{{ $key }}][name]"
-                                               class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                               class="outline-0 form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
                                                placeholder="Enter ticket holder's name"
                                                required
                                         >
@@ -73,7 +74,7 @@
                                         <input type="email"
                                                id="ticket-{{ $key }}-email"
                                                name="ticket[{{ $key }}][email]"
-                                               class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                               class="outline-0 form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
                                                placeholder="Enter ticket holder's email"
                                                required
                                         >
@@ -87,7 +88,7 @@
                         <!-- Payer Information -->
                         <div class="mt-8 pt-8 border-t border-gray-200">
                             <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                                <svg class="w-5 h-5 mr-2 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 mr-2 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                 </svg>
                                 Payer Information
@@ -97,7 +98,7 @@
                                 <div>
                                     <label for="payer-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                                     <input type="text" id="payer-name" name="payer_name"
-                                           class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                           class="outline-0 form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
                                            placeholder="Enter payer's full name" required>
                                     <div class="error-message hidden text-red-500 text-sm mt-1"></div>
                                 </div>
@@ -105,7 +106,7 @@
                                 <div>
                                     <label for="payer-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                                     <input type="email" id="payer-email" name="payer_email"
-                                           class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                           class="outline-0 form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
                                            placeholder="Enter payer's email" required>
                                     <div class="error-message hidden text-red-500 text-sm mt-1"></div>
                                 </div>
@@ -138,7 +139,7 @@
                                 <div class="border-t border-gray-300 pt-2 mt-2">
                                     <div class="flex justify-between items-center text-lg font-bold">
                                         <span>Total</span>
-                                        <span class="text-indigo-600">€{{ $order->totalPrice() }}</span>
+                                        <span class="text-brand-teal">€{{ $order->totalPrice() }}</span>
                                     </div>
                                 </div>
                             </div>

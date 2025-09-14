@@ -3,6 +3,7 @@
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\PayPalWebhookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -15,3 +16,5 @@ Route::post('/captureOrder/{orderId?}', [CheckoutController::class, 'captureOrde
 
 Route::get('paypal/success', [PayPalController::class, 'success'])->name('paypal.success');
 Route::get('paypal/cancel', [PayPalController::class, 'cancel'])->name('paypal.cancel');
+
+Route::post('webhook/paypal', PayPalWebhookController::class)->name('webhook.paypal');

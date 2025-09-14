@@ -7,7 +7,7 @@
 
     <!-- Success Icon and Header -->
     <div class="text-center mb-8 animate-bounce-in">
-        <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="w-20 h-20 bg-brand-teal rounded-full flex items-center justify-center mx-auto mb-6">
             <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
@@ -63,7 +63,7 @@
                 <div class="mt-4 pt-4 border-t border-gray-200">
                     <div class="flex justify-between items-center text-lg font-bold">
                         <span>Total Paid:</span>
-                        <span class="text-green-600" id="total-amount">€{{ $order->totalPrice() }}</span>
+                        <span class="text-brand-teal" id="total-amount">€{{ $order->totalPrice() }}</span>
                     </div>
                 </div>
             </div>
@@ -85,17 +85,10 @@
             <!-- Contact Information -->
             <div class="text-center text-sm text-gray-600 mb-6">
                 <p class="mb-2">Questions about your order?</p>
-                <p>Contact us at <a href="mailto:flutemeet@gmail.com" class="text-blue-600 hover:underline">flutemeet@gmail.com</a></p>
+                <p>Contact us at <a href="mailto:flutemeet@gmail.com" class="text-brand-teal hover:underline">flutemeet@gmail.com</a></p>
             </div>
 
         </div>
-    </div>
-
-    <!-- Back to Home -->
-    <div class="text-center mt-8">
-        <a href="https://flutemeet.org/" class="text-gray-600 hover:text-gray-800 transition-colors">
-            ← Return To Main Site
-        </a>
     </div>
 </div>
 

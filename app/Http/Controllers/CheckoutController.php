@@ -88,7 +88,10 @@ class CheckoutController extends Controller
 
         if ($result['status'] === 'COMPLETED') {
             $order = Order::wherePayPalId($orderId)->first();
-            $order->update(['status' => OrderStatus::PAID]);
+            $order->update([
+                'status' => OrderStatus::PAID,
+                'pay_pal_capture' => $result['purchase_units'][0]['payments']['captures'][0]['id'],
+            ]);
 
             OrderPaid::dispatch($order);
         } else {
