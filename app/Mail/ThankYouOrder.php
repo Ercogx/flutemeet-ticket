@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Actions\RetrieveWpSettings;
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -33,6 +34,25 @@ class ThankYouOrder extends Mailable implements ShouldQueue
     {
         return new Content(
             markdown: 'mail.thank-you-order',
+            with: [
+                'emailContent' => $this->generateEmailContent()
+            ]
+        );
+    }
+
+    private function generateEmailContent(): string
+    {
+        $raw = app(RetrieveWpSettings::class)->handle('l_event_payer_email', true);
+
+        return str_replace(
+            ['{name}', '{event}', '{total}', '{numberf_of_tickets}'],
+            [
+                $this->order->payer_name,
+                $this->order->event->name,
+                $this->order->totalPrice(),
+                $this->order->orderTickets()->count(),
+            ],
+            $raw
         );
     }
 }
