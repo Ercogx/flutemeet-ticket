@@ -60,15 +60,15 @@ class CheckoutController extends Controller
                     [
                         'amount' => [
                             'currency_code' => config('paypal.currency'),
-                            'value' => $order->totalPrice()
-                        ]
-                    ]
+                            'value' => $order->totalPrice(),
+                        ],
+                    ],
                 ],
                 'items' => $order->toPayPalItems(),
                 'application_context' => [
                     'return_url' => route('paypal.success'),
                     'cancel_url' => route('paypal.cancel'),
-                ]
+                ],
             ]);
 
             $order->update(['pay_pal_id' => $paypalOrder['id']]);

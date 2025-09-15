@@ -18,8 +18,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
 
     public function __construct(
         public OrderTicket $orderTicket
-    ) {
-    }
+    ) {}
 
     public function envelope(): Envelope
     {
@@ -34,7 +33,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
         return new Content(
             markdown: 'mail.attendee-register',
             with: [
-                'emailContent' => $this->generateEmailContent()
+                'emailContent' => $this->generateEmailContent(),
             ]
         );
     }
@@ -49,7 +48,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
                 $this->orderTicket->name,
                 $this->orderTicket->order->event->name,
                 $this->orderTicket->ticket_type->value,
-                $this->orderTicket->order->event->start_date->format('M j, Y H:i')
+                $this->orderTicket->order->event->start_date->format('M j, Y H:i'),
             ],
             $raw
         );

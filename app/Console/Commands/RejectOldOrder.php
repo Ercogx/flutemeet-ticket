@@ -15,7 +15,7 @@ class RejectOldOrder extends Command
         Order::where('status', OrderStatus::PENDING)
             ->where('created_at', '<', now()->subMinutes(5))
             ->update([
-                'status' => OrderStatus::REJECTED
+                'status' => OrderStatus::REJECTED,
             ]);
     }
 }

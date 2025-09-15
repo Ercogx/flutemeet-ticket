@@ -16,7 +16,7 @@ class RetrieveWpSettings
 
         $value = unserialize($option)[$optionName] ?? '';
 
-        if (!$isEditor) {
+        if (! $isEditor) {
             return $value;
         }
 

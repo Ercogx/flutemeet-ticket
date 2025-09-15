@@ -23,7 +23,7 @@ class PayPalWebhookController extends Controller
             if ($captureLink) {
                 $captureId = basename($captureLink['href']);
 
-               Order::wherePayPalCapture($captureId)->update(['status' => OrderStatus::REFUNDED]);
+                Order::wherePayPalCapture($captureId)->update(['status' => OrderStatus::REFUNDED]);
             }
         }
 

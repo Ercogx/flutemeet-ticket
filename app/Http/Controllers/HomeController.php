@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function __invoke()
     {
         return view('home', [
-            'event' => Event::whereIsActive(true)->latest()->first()
+            'event' => Event::whereIsActive(true)->latest()->first(),
         ]);
     }
 }

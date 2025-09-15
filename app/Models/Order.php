@@ -52,7 +52,7 @@ class Order extends Model
         return $this->orderTickets->groupBy('ticket_type')
             ->map(fn (Collection $tickets) => [
                 'name' => $tickets->first()->ticket_type->value,
-                'description' => 'Ticket for '. $this->event->name,
+                'description' => 'Ticket for '.$this->event->name,
                 'quantity' => $tickets->count(),
                 'category' => 'DIGITAL_GOODS',
                 'unit_amount' => [
@@ -61,7 +61,7 @@ class Order extends Model
                         ? $this->event->price_adult_ticket
                         : $this->event->price_child_ticket),
 
-                ]
+                ],
             ])
             ->toArray();
     }

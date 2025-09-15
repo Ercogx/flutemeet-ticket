@@ -41,16 +41,16 @@ class Event extends Model
         return $this->number_child_ticket - Order::whereEventId($this->id)
             ->join('order_tickets', 'order_tickets.order_id', '=', 'orders.id')
             ->where('order_tickets.ticket_type', TicketType::CHILD)
-            ->where('orders.status', '!=',OrderStatus::REJECTED)
+            ->where('orders.status', '!=', OrderStatus::REJECTED)
             ->count();
     }
 
     protected function getRemainingAdultTicketAttribute(): int
     {
         return $this->number_adult_ticket - Order::whereEventId($this->id)
-                ->join('order_tickets', 'order_tickets.order_id', '=', 'orders.id')
-                ->where('order_tickets.ticket_type', TicketType::ADULT)
-                ->where('orders.status', '!=',OrderStatus::REJECTED)
-                ->count();
+            ->join('order_tickets', 'order_tickets.order_id', '=', 'orders.id')
+            ->where('order_tickets.ticket_type', TicketType::ADULT)
+            ->where('orders.status', '!=', OrderStatus::REJECTED)
+            ->count();
     }
 }

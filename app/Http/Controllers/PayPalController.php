@@ -11,7 +11,7 @@ class PayPalController extends Controller
     public function success(Request $request): View
     {
         return view('success', [
-            'order' => Order::wherePayPalId($request->input('orderId'))->firstOrFail()
+            'order' => Order::wherePayPalId($request->input('orderId'))->firstOrFail(),
         ]);
     }
 

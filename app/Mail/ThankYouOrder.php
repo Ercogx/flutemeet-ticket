@@ -18,9 +18,7 @@ class ThankYouOrder extends Mailable implements ShouldQueue
 
     public function __construct(
         public Order $order
-    )
-    {
-    }
+    ) {}
 
     public function envelope(): Envelope
     {
@@ -35,7 +33,7 @@ class ThankYouOrder extends Mailable implements ShouldQueue
         return new Content(
             markdown: 'mail.thank-you-order',
             with: [
-                'emailContent' => $this->generateEmailContent()
+                'emailContent' => $this->generateEmailContent(),
             ]
         );
     }
