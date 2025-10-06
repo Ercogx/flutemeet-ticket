@@ -22,18 +22,20 @@
             <p class="text-gray-600">Complete your ticket purchase for {{ $order->event->name }}</p>
         </div>
 
-        <div class="max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6 mb-8  animate-slide-up">
-            <!-- Timer strip with inline time -->
-            <div class="flex items-center gap-3">
-                <!-- Progress bar -->
-                <div class="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
-                    <div id="progress" class="bg-brand-teal h-3 rounded-full" style="width: 100%;"></div>
-                </div>
+        @empty($order->eventWhitelist))
+            <div class="max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6 mb-8  animate-slide-up">
+                <!-- Timer strip with inline time -->
+                <div class="flex items-center gap-3">
+                    <!-- Progress bar -->
+                    <div class="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
+                        <div id="progress" class="bg-brand-teal h-3 rounded-full" style="width: 100%;"></div>
+                    </div>
 
-                <!-- Time text -->
-                <div id="time" class="text-sm font-medium text-gray-700 w-12 text-right">05:00</div>
+                    <!-- Time text -->
+                    <div id="time" class="text-sm font-medium text-gray-700 w-12 text-right">05:00</div>
+                </div>
             </div>
-        </div>
+        @endif
 
         <form id="checkout-form" class="grid grid-cols-1 lg:grid-cols-5 gap-8">
             <!-- Main Form -->
@@ -198,9 +200,10 @@
             }
         }
 
-        // Start timer
-        updateTimer();
-        const timer = setInterval(updateTimer, 1000);
+        @empty($order->eventWhitelist)
+            updateTimer();
+            const timer = setInterval(updateTimer, 1000);
+        @endif
 
         paypal.Buttons({
             onInit: function(data, actions) {

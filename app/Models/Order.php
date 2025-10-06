@@ -24,6 +24,11 @@ class Order extends Model
         return $this->hasMany(OrderTicket::class)->chaperone();
     }
 
+    public function eventWhitelist(): BelongsTo
+    {
+        return $this->belongsTo(EventWhitelist::class);
+    }
+
     /** @return Collection<int, OrderTicket> */
     public function adultTickets(): Collection
     {

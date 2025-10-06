@@ -26,7 +26,7 @@ class CheckoutController extends Controller
             return to_route('home');
         }
 
-        if ($order->created_at->lt(now()->subMinutes(5))) {
+        if (is_null($order->eventWhitelist) && $order->created_at->lt(now()->subMinutes(5))) {
             $order->update(['status' => OrderStatus::REJECTED]);
 
             return to_route('home');
