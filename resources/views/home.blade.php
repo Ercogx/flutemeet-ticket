@@ -22,7 +22,12 @@
                 <h1 class="font-bold text-brand-dark mb-4" style="font-size: 4rem;">
                     {{ $event->name }}
                 </h1>
-                <p class="text-brand-dark text-xl">Select your tickets for an unforgettable experience</p>
+                <p class="text-brand-dark text-lg">
+                    Select your tickets below. <br>
+                    When you click on the PayPal button at the Checkout, you will be prompted to give a name.
+                    Please make sure that the name you give here is that of THE PERSON ATTENDING,
+                    even if the person paying is someone different (important for the child tickets).
+                </p>
                 <div class="flex items-center justify-center mt-4 text-sm text-gray-500">
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
