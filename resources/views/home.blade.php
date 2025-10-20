@@ -143,6 +143,14 @@
                         </div>
                     </div>
 
+                    @if ($event->remaining_child_ticket === 0 || $event->remaining_adult_ticket === 0)
+                        <p class="text-red-500 text-center mt-8">
+                            Please email
+                            <a href="mailto:info@flutemeet.org" class="underline">info@flutemeet.org</a>
+                            to be added to our waiting list
+                        </p>
+                    @endif
+
                     <!-- Continue Button -->
                     <div class="mt-8">
                         <button id="continue-btn"
