@@ -7,7 +7,7 @@
         <div class="container mx-auto px-4 py-8 max-w-4xl">
             <!-- Header -->
             <div class="text-center mb-12 animate-fade-in">
-                <h1 class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                <h1 class="text-4xl font-bold text-brand-teal  mb-4">
                     No active events
                 </h1>
             </div>
