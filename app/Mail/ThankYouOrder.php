@@ -24,7 +24,7 @@ class ThankYouOrder extends Mailable implements ShouldQueue
     {
         return new Envelope(
             to: $this->order->payer_email,
-            subject: 'Thank You for Your Order! 🎵',
+            subject: app(RetrieveWpSettings::class)->handle('l_event_payer_subject'),
         );
     }
 

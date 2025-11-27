@@ -24,6 +24,7 @@ class WhitelistNotify extends Mailable implements ShouldQueue
     {
         return new Envelope(
             to: $this->eventWhitelist->email,
+            subject: app(RetrieveWpSettings::class)->handle('l_event_waitlist_subject'),
         );
     }
 

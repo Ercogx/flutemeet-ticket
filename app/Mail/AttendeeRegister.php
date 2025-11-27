@@ -24,7 +24,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
     {
         return new Envelope(
             to: $this->orderTicket->email,
-            subject: 'Attendee Register',
+            subject: app(RetrieveWpSettings::class)->handle('l_event_attendee_subject'),
         );
     }
 
