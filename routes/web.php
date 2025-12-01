@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('/whitelist/{event:uuid}', [WhiteListController::class, 'show'])->name('whitelist.show');
+Route::get('/waitlist/{event:uuid}', [WhiteListController::class, 'show'])->name('whitelist.show');
 
 Route::post('/createOrder/{event}', [CheckoutController::class, 'createOrder'])->name('order.create');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
@@ -21,3 +21,5 @@ Route::get('paypal/success', [PayPalController::class, 'success'])->name('paypal
 Route::get('paypal/cancel', [PayPalController::class, 'cancel'])->name('paypal.cancel');
 
 Route::post('webhook/paypal', PayPalWebhookController::class)->name('webhook.paypal');
+
+Route::permanentRedirect('/whitelist/{event:uuid}', '/waitlist/{event:uuid}');
