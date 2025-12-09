@@ -54,6 +54,7 @@ class Event extends Model
             ->join('order_tickets', 'order_tickets.order_id', '=', 'orders.id')
             ->where('order_tickets.ticket_type', TicketType::CHILD)
             ->where('orders.status', '!=', OrderStatus::REJECTED)
+            ->where('orders.status', '!=', OrderStatus::REFUNDED)
             ->count(), 0);
     }
 
@@ -63,6 +64,7 @@ class Event extends Model
             ->join('order_tickets', 'order_tickets.order_id', '=', 'orders.id')
             ->where('order_tickets.ticket_type', TicketType::ADULT)
             ->where('orders.status', '!=', OrderStatus::REJECTED)
+            ->where('orders.status', '!=', OrderStatus::REFUNDED)
             ->count(), 0);
     }
 
