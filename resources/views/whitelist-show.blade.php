@@ -10,7 +10,7 @@
             </a>
             <div class="flex items-center justify-center mb-4">
                 <h1 class="text-3xl font-bold text-brand-dark">
-                    Whitelist
+                    Waitlist
                 </h1>
             </div>
 

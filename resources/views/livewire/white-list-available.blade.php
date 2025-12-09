@@ -80,7 +80,7 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="text-2xl font-semibold text-gray-800 mb-3">Sorry, the whitelist for this event is not
+                <h1 class="text-2xl font-semibold text-gray-800 mb-3">Sorry, the waitlist for this event is not
                     available.</h1>
 
                 <!-- Help -->
