@@ -146,7 +146,7 @@
                     @if ($event->remaining_child_ticket === 0 || $event->remaining_adult_ticket === 0)
                         <p class="text-red-500 text-center mt-8">
                             Please email
-                            <a href="mailto:info@flutemeet.org" class="underline">info@flutemeet.org</a>
+                            <a href="mailto:flutemeet@gmail.com" class="underline">flutemeet@gmail.com</a>
                             to be added to our waiting list
                         </p>
                     @endif
