@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\TicketType;
 use App\Models\order;
 use App\Models\OrderTicket;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -16,11 +17,9 @@ class OrderTicketFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'ticket_type' => $this->faker->word(),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'ticket_type' => $this->faker->randomElement(TicketType::cases()),
 
-            'order_id' => order::factory(),
+            'order_id' => Order::factory(),
         ];
     }
 }

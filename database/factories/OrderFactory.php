@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\OrderStatus;
 use App\Models\Event;
 use App\Models\order;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -14,9 +15,10 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'status' => $this->faker->word(),
+            'session' => $this->faker->uuid(),
+            'payer_name' => $this->faker->name(),
+            'payer_email' => $this->faker->unique()->safeEmail(),
+            'status' => OrderStatus::PAID,
 
             'event_id' => Event::factory(),
         ];
