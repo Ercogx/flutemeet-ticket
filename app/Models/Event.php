@@ -14,6 +14,7 @@ class Event extends Model
 {
     /** @use HasFactory<\Database\Factories\EventFactory> */
     use HasFactory;
+
     use HasUuids;
 
     protected $casts = [
@@ -41,6 +42,20 @@ class Event extends Model
     public function eventWhitelist(): HasMany
     {
         return $this->hasMany(EventWhitelist::class);
+    }
+
+    public function paidAdultOrderTickets(): HasManyThrough
+    {
+        return $this->orderTickets()
+            ->where('orders.status', OrderStatus::PAID)
+            ->where('order_tickets.ticket_type', TicketType::ADULT);
+    }
+
+    public function paidChildOrderTickets(): HasManyThrough
+    {
+        return $this->orderTickets()
+            ->where('orders.status', OrderStatus::PAID)
+            ->where('order_tickets.ticket_type', TicketType::CHILD);
     }
 
     public function uniqueIds(): array
