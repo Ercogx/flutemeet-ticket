@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Actions\RetrieveWpSettings;
 use App\Models\OrderTicket;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -24,7 +23,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
     {
         return new Envelope(
             to: $this->orderTicket->email,
-            subject: app(RetrieveWpSettings::class)->handle('l_event_attendee_subject'),
+            subject: db_config('general.l_event_attendee_subject'),
         );
     }
 
@@ -40,8 +39,6 @@ class AttendeeRegister extends Mailable implements ShouldQueue
 
     private function generateEmailContent(): string
     {
-        $raw = app(RetrieveWpSettings::class)->handle('l_event_attendee_email', true);
-
         return str_replace(
             ['{name}', '{event}', '{ticket_type}', '{event_datetime}'],
             [
@@ -50,7 +47,7 @@ class AttendeeRegister extends Mailable implements ShouldQueue
                 $this->orderTicket->ticket_type->value,
                 $this->orderTicket->order->event->start_date->format('M j, Y H:i'),
             ],
-            $raw
+            db_config('general.l_event_attendee_email', '')
         );
     }
 }

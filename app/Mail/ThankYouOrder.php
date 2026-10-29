@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Actions\RetrieveWpSettings;
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -24,7 +23,7 @@ class ThankYouOrder extends Mailable implements ShouldQueue
     {
         return new Envelope(
             to: $this->order->payer_email,
-            subject: app(RetrieveWpSettings::class)->handle('l_event_payer_subject'),
+            subject: db_config('general.l_event_payer_subject'),
         );
     }
 
@@ -40,8 +39,6 @@ class ThankYouOrder extends Mailable implements ShouldQueue
 
     private function generateEmailContent(): string
     {
-        $raw = app(RetrieveWpSettings::class)->handle('l_event_payer_email', true);
-
         return str_replace(
             ['{name}', '{event}', '{total}', '{numberf_of_tickets}'],
             [
@@ -50,7 +47,7 @@ class ThankYouOrder extends Mailable implements ShouldQueue
                 $this->order->totalPrice(),
                 $this->order->orderTickets()->count(),
             ],
-            $raw
+            db_config('general.l_event_payer_email', '')
         );
     }
 }
