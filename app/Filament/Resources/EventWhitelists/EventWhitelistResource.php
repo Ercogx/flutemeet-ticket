@@ -26,6 +26,8 @@ class EventWhitelistResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'email';
 
+    protected static ?string $modelLabel = 'Event Waitlist';
+
     public static function form(Schema $schema): Schema
     {
         return $schema
